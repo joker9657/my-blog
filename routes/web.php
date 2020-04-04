@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ArticlesController@index');
+Route::get('/posts/{slug?}', 'ArticlesController@post');
+Route::get('/archive', 'ArticlesController@archive');
+Route::get('/tags', 'ArticlesController@tags');
+Route::get('/about', 'ArticlesController@about');
+Route::get('/{sort?}', 'ArticlesController@index');
