@@ -4,8 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
-    <title>{{ $article->title }} -- Joker的博客</title>
+    <title>about -- Joker的博客</title>
 </head>
 <body>
 <div class="box">
@@ -38,20 +37,12 @@
     </header>
     <main>
         <div class="left-main">
-            <div class="left-main-box">
-                <div class="post">
-                    <h1 class="post-title">
-                        <a href="/t/{{ $article->slug }}">{{ $article->title }}</a>
-                    </h1>
-                    <div class="post-meta">
-                        <img src="{{ asset('uploads/date.png') }}" alt="" class="date-img" />
-                        <span>{{ $article->created_at->format('Y-m-d') }}</span>
-                    </div>
-                    <div class="post-content ">
-                        {!! $article->content !!}
-                    </div>
-                </div>
-            </div>
+            <h1>woami</h1>
+{{--            <p>生于广东惠州</p>--}}
+{{--            <p>瘦弱似条竹竿</p>--}}
+{{--            <p>广州不知名二本毕业</p>--}}
+{{--            <p>至今仍是三流码农</p>--}}
+
         </div>
         <div class="right-main">
             <div class="sidebar">
@@ -102,4 +93,5 @@
     </footer>
 </div>
 </body>
+<script src="{{ asset('js/app.js') }}"></script>
 </html>

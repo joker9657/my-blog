@@ -24,6 +24,10 @@ class ArticlesController extends Controller
         return view('index', compact('articles', 'categories', 'recent_articles'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function post(Request $request)
     {
         $slug = $request->slug;
@@ -33,5 +37,30 @@ class ArticlesController extends Controller
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(6)->get();
         return view('post', compact('article', 'categories', 'recent_articles'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function archive()
+    {
+        $articles = Article::latest()->select(['title', 'slug', 'created_at'])->get();
+        $categories = Category::all();
+        $recent_articles = Article::latest()->limit(6)->get();
+        return view('archive', compact('articles', 'categories', 'recent_articles'));
+    }
+
+    public function tags()
+    {
+        $categories = Category::all();
+        $recent_articles = Article::latest()->limit(6)->get();
+        return view('tag', compact('categories', 'recent_articles'));
+    }
+
+    public function about()
+    {
+        $categories = Category::all();
+        $recent_articles = Article::latest()->limit(6)->get();
+        return view('about', compact('categories', 'recent_articles'));
     }
 }
