@@ -271,3 +271,12 @@ footer {
     font-size: 18px;
     color: #7d7d7d;
 }
+pre[class*="language-"] {
+    background: #384548;
+}
+.token.string, .token.char, .token.attr-value, .token.regex, .token.variable {
+    color: #00e0e0;
+}
+.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin {
+    color: #f08d49;
+}
