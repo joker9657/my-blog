@@ -63,19 +63,11 @@
                         @else
                             <li style="cursor: not-allowed;"><span></span></li>
                         @endif
-                        @for($i = 1; $i < $articles->total(); $i++)
-                            @if($i + 1 === $articles->total())
-                                @if($i + 1 === $articles->currentPage())
-                                    <li class="active"><a href="{{ $articles->url($i + 1) }}">{{ $i + 1 }}</a></li>
-                                @else
-                                    <li><a href="{{ $articles->url($i + 1) }}">{{ $i + 1 }}</a></li>
-                                @endif
+                        @for($i = 1; $i <= $articles->lastPage(); $i++)
+                            @if($i === $articles->currentPage())
+                                <li class="active"><a href="{{ $articles->url($i) }}">{{ $i}}</a></li>
                             @else
-                                @if($i === $articles->currentPage())
-                                    <li class="active"><a href="{{ $articles->url($i) }}">{{ $i }}</a></li>
-                                @else
-                                    <li><a href="{{ $articles->url($i) }}">{{ $i }}</a></li>
-                                @endif
+                                <li><a href="{{ $articles->url($i) }}">{{ $i }}</a></li>
                             @endif
                         @endfor
                         {{-- Next Page Link --}}
@@ -89,7 +81,7 @@
             </div>
             <div class="right-main">
                 <div class="sidebar">
-                    <div class="widget">
+                    <div class="search-button">
                         <label for=""><input type="text" placeholder="Search" class="search"></label>
                     </div>
                     <div class="widget">
@@ -128,7 +120,7 @@
                 <strong><a href="http://beian.miit.gov.cn" target="_blank">粤ICP备19072363号</a></strong>
             </div>
             <div class="footer-info">
-                <strong>Powered By <a href="https://laravel.com/" class="text-blue-400">Laravel7</a></strong>
+                <strong>Powered By <a href="https://laravel.com/" style="color: #ff2d20">Laravel7</a></strong>
             </div>
             <div class="footer-info">
                 <strong>©2019-2020 Joker</strong>

@@ -13,7 +13,7 @@
             <a href="/">Joker 的博客</a>
         </div>
         <div class="nav-menu">
-            <a class="current" href="/">
+            <a href="/">
                 <img src="{{ asset('uploads/home.png') }}" alt="" />
                 <span>首页</span>
             </a>
@@ -21,7 +21,7 @@
                 <img src="{{ asset('uploads/archive.png') }}" alt="" />
                 <span>归档</span>
             </a>
-            <a href="/tags">
+            <a class="current" href="/tags">
                 <img src="{{ asset('uploads/sign.png') }}" alt="" />
                 <span>标签</span>
             </a>
@@ -41,7 +41,7 @@
         </div>
         <div class="right-main">
             <div class="sidebar">
-                <div class="widget">
+                <div class="search-button">
                     <label for=""><input type="text" placeholder="Search" class="search"></label>
                 </div>
                 <div class="widget">

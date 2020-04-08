@@ -41,11 +41,12 @@
             <div class="left-main-box">
                 <div class="post">
                     <h1 class="post-title">
-                        <a href="/t/{{ $article->slug }}">{{ $article->title }}</a>
+                        <a href="/posts/{{ $article->slug }}">{{ $article->title }}</a>
                     </h1>
                     <div class="post-meta">
                         <img src="{{ asset('uploads/date.png') }}" alt="" class="date-img" />
                         <span>{{ $article->created_at->format('Y-m-d') }}</span>
+                        <span>{{ $article->clicks }}&ensp;views</span>
                     </div>
                     <div class="post-content ">
                         {!! $article->content !!}
@@ -55,7 +56,7 @@
         </div>
         <div class="right-main">
             <div class="sidebar">
-                <div class="widget">
+                <div class="search-button">
                     <label for=""><input type="text" placeholder="Search" class="search"></label>
                 </div>
                 <div class="widget">

@@ -20,8 +20,8 @@ Route::get('/about', 'ArticlesController@about');
 Route::get('/{sort?}', 'ArticlesController@index');
 Route::feeds();
 // SiteMap
-Route::get('sitemap', 'GeneratedController@siteMap');
-Route::get('sitemap.xml', 'GeneratedController@siteMap');
+Route::get('generated/sitemap', 'GeneratedController@siteMap');
+Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 
 // RSS Feed
 Route::get('feed.xml', 'GeneratedController@feed');

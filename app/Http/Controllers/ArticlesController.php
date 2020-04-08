@@ -18,7 +18,7 @@ class ArticlesController extends Controller
         $articles = Article::orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
             $category = Category::where('name', $sort)->first('id');
             $query->where('category_id', $category->id);
-        })->paginate(1);
+        })->paginate();
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(6)->get();
         return view('index', compact('articles', 'categories', 'recent_articles'));
@@ -31,7 +31,9 @@ class ArticlesController extends Controller
     public function post(Request $request)
     {
         $slug = $request->slug;
-        $article = Article::where('slug', $slug)->first();
+        $article = Article::when($slug, function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->first();
         $article->content = \Parsedown::instance()->text($article->content);
 
         $categories = Category::all();

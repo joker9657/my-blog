@@ -6,6 +6,9 @@ a {
 body {
     margin: 0;
 }
+ul {
+    list-style: none;
+}
 .box {
     max-width: 1280px;
     margin: 0 auto;
@@ -55,6 +58,8 @@ main {
 }
 .right-main {
     width: 25%;
+    border-left: 1px solid #ddd;
+    margin: 3rem auto;
 }
 .left-main-box {
     padding-right: 2rem;
@@ -75,6 +80,7 @@ main {
 }
 .post-meta span {
     color: #4a5568;
+    margin-right: 2rem;
 }
 .post-content {
     color: #444;
@@ -104,14 +110,15 @@ main {
     border-color: #e2e8f0;
 }
 .sidebar {
-    border-left: 1px solid #ddd;
     padding-left: 35px;
-    margin-top: 40px;
     padding-bottom: 20px;
     word-wrap: break-word;
 }
 .widget {
-    margin-bottom: 20px;
+    margin-bottom: 4rem;
+}
+.search-button {
+    margin-bottom: 2rem;
 }
 .search {
     padding: 7px 11px 7px 28px;
@@ -123,8 +130,7 @@ main {
 }
 .pagination {
     border-top: 1px solid #ddd;
-    width: 45rem;
-    background: #fdfdfd;
+    width: 90%;
     padding: 1rem;
     margin: 3rem auto;
     border-radius: 0.2rem;
@@ -257,7 +263,6 @@ footer {
 }
 .footer-info {
     width: 33.333333%;
-    color: #4a5568;
 }
 .archive {
     list-style: none;
@@ -279,4 +284,8 @@ pre[class*="language-"] {
 }
 .token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin {
     color: #f08d49;
+}
+
+.archive-post li {
+    margin: 1rem auto;
 }

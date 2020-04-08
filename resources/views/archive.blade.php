@@ -15,11 +15,11 @@
             <a href="/">Joker 的博客</a>
         </div>
         <div class="nav-menu">
-            <a class="current" href="/">
+            <a href="/">
                 <img src="{{ asset('uploads/home.png') }}" alt="" />
                 <span>首页</span>
             </a>
-            <a href="/archive">
+            <a class="current" href="/archive">
                 <img src="{{ asset('uploads/archive.png') }}" alt="" />
                 <span>归档</span>
             </a>
@@ -39,17 +39,19 @@
     </header>
     <main>
         <div class="left-main">
-            @foreach($articles as $article)
-                <div class="left-main-box">
-                    <ul class="archive">
-                        <li><a href="/posts/{{ $article->slug }}"><span>{{ $article->created_at->format('Y-m-d') }}</span>{{ $article->title }}</a></li>
+            <div class="left-main-box">
+                <div class="post">
+                    <ul class="archive-post">
+                        @foreach($articles as $article)
+                            <li><a href="/posts/{{ $article->slug }}"><span>{{ $article->created_at->format('Y-m-d') }}</span>&ensp;&ensp;{{ $article->title }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
-            @endforeach
+            </div>
         </div>
         <div class="right-main">
             <div class="sidebar">
-                <div class="widget">
+                <div class="search-button">
                     <label for=""><input type="text" placeholder="Search" class="search"></label>
                 </div>
                 <div class="widget">
