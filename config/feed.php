@@ -11,14 +11,14 @@ return [
              * You can also pass an argument to that method:
              * ['App\Model@getAllFeedItems', 'argument']
              */
-            'items' => '',
+            'items' => 'App\Article@getFeedItems',
 
             /*
              * The feed will be available on this url.
              */
-            'url' => '',
+            'url' => '/generated/feed',
 
-            'title' => 'My feed',
+            'title' => 'The Blog of Joker',
             'description' => 'The description of the feed.',
             'language' => 'en-US',
 

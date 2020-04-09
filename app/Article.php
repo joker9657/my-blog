@@ -37,9 +37,18 @@ class Article extends Model implements Feedable
         return FeedItem::create()
             ->id($this->id)
             ->title($this->title)
-            ->summary($this->summary)
+            ->summary($this->introduction)
             ->updated($this->updated_at)
             ->link($this->link)
             ->author('joker');
+    }
+    public static function getFeedItems()
+    {
+        return static::all();
+    }
+
+    public function getLinkAttribute()
+    {
+        return url('/posts/' . $this->slug);
     }
 }

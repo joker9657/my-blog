@@ -65,4 +65,5 @@ class ArticlesController extends Controller
         $recent_articles = Article::latest()->limit(6)->get();
         return view('about', compact('categories', 'recent_articles'));
     }
+
 }
