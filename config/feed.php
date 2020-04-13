@@ -20,12 +20,12 @@ return [
 
             'title' => 'The Blog of Joker',
             'description' => 'The description of the feed.',
-            'language' => 'en-US',
+            'language' => 'zh-CN',
 
             /*
              * The view that will render the feed.
              */
-            'view' => 'feed::atom',
+            'view' => 'feed::feed',
 
             /*
              * The type to be used in the <link> tag

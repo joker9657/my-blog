@@ -4,13 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 
 /**
  * @method static orderBy(string $string, string $string1)
  */
-class Article extends Model implements Feedable
+class Article extends Model
 {
     use SoftDeletes;
     protected $table = 'articles';
@@ -30,25 +28,5 @@ class Article extends Model implements Feedable
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'article_tags', 'article_id', 'tag_id');
-    }
-
-    public function toFeedItem()
-    {
-        return FeedItem::create()
-            ->id($this->id)
-            ->title($this->title)
-            ->summary($this->introduction)
-            ->updated($this->updated_at)
-            ->link($this->link)
-            ->author('joker');
-    }
-    public static function getFeedItems()
-    {
-        return static::all();
-    }
-
-    public function getLinkAttribute()
-    {
-        return url('/posts/' . $this->slug);
     }
 }

@@ -29,7 +29,7 @@
                     <img src="{{ asset('uploads/about.png') }}" alt=""  />
                     <span>关于</span>
                 </a>
-                <a href="/generated/feed" target="_blank">
+                <a href="/generated/feed" target="_blank" rel="feed" type="application/rss+xml" title="Feed">
                     <img src="{{ asset('uploads/subscription.png') }}" alt=""  />
                     <span>订阅</span>
                 </a>

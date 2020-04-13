@@ -18,10 +18,11 @@ Route::get('/archive', 'ArticlesController@archive');
 Route::get('/tags', 'ArticlesController@tags');
 Route::get('/about', 'ArticlesController@about');
 Route::get('/{sort?}', 'ArticlesController@index');
+
 // SiteMap
 Route::get('generated/sitemap', 'GeneratedController@siteMap');
 Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 
 // RSS Feed
-//Route::get('feed.xml', 'GeneratedController@feed');
-Route::feeds();
+Route::get('generated/feed', 'GeneratedController@feed');
+Route::get('generated/feed.xml', 'GeneratedController@feed');
