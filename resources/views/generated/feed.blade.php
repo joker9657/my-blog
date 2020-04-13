@@ -3,7 +3,7 @@
         <title>Joker的博客</title>
         <description>Do more and think less</description>
         <link>{{ url('/') }}</link>
-        <atom:link href="{{ url('/feed') }}" rel="self" type="application/rss+xml"/>
+        <atom:link href="{{ url('/generated/feed') }}" rel="self" type="application/rss+xml"/>
         <?php
         $date = !empty($posts) ? $posts[0]->updated_at->format('D, d M Y H:i:s O') : date("D, d M Y H:i:s O", time())
         ?>
