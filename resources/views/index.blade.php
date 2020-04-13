@@ -102,7 +102,7 @@
                         </div>
                         <ul class="recent-list">
                             @foreach($recent_articles as $recent)
-                                <li><a href="/t/{{ $recent->slug }}">{{ $recent->title }}</a></li>
+                                <li><a href="/posts/{{ $recent->slug }}">{{ $recent->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
