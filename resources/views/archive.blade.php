@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="{{ asset('uploads/favicon.ico') }}" type="image/x-icon">
     <script src="{{ asset('js/app.js') }}"></script>
     <title>archive -- Joker的博客</title>
 </head>

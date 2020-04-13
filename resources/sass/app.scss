@@ -10,7 +10,7 @@ ul {
     list-style: none;
 }
 .box {
-    max-width: 1280px;
+    max-width: 1160px;
     margin: 0 auto;
 }
 .header {
@@ -91,6 +91,30 @@ main {
     padding-top: 1.25rem;
     line-height: 1.5;
 }
+.post-content a {
+    text-decoration:lightslategrey wavy underline;
+    color: #3fc3ee;
+}
+.post-content p {
+    line-height: 30px;
+}
+table {
+    display: table;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin: 25px 0;
+}
+th, td {
+    padding: 20px;
+    text-align: center;
+}
+.post-content th, td {
+    border-width: 0 1px 1px 0;
+    border-color: #ddd;
+    border-style: solid;
+    padding: 10px;
+}
 .date-img {
     width: 1.25rem;
     margin-bottom: -0.25rem;
@@ -105,9 +129,8 @@ main {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
     float: right;
-    border-width: 1px;
+    border: 1px solid #e2e8f0;
     border-radius: 0.25rem;
-    border-color: #e2e8f0;
 }
 .sidebar {
     padding-left: 35px;
