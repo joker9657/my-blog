@@ -11,6 +11,7 @@
         <header class="header">
             <div class="title">
                 <a href="/">Joker 的博客</a>
+                <p>Do more and think less</p>
             </div>
             <div class="nav-menu">
                 <a class="current" href="/">

@@ -3,7 +3,7 @@
         <title>Joker的博客</title>
         <description>Do more and think less</description>
         <link>{{ url('/') }}</link>
-        <atom:link href="{{ url('/feed.xml') }}" rel="self" type="application/rss+xml"/>
+        <atom:link href="{{ url('/feed') }}" rel="self" type="application/rss+xml"/>
         <?php
         $date = !empty($posts) ? $posts[0]->updated_at->format('D, d M Y H:i:s O') : date("D, d M Y H:i:s O", time())
         ?>
@@ -15,8 +15,7 @@
             <title>{{ $post->title }}</title>
             <link>{{ url('/posts/' .$post->slug) }}</link>
             <description>{{ $post->introduction }}</description>
-            <pubDate>{{ $post->created_at->format('D, d M Y H:i:s T') }}</pubDate>
-            <author>joker</author>
+            <pubDate>{{ $post->created_at->format('D, d M Y H:i:s O') }}</pubDate>
             <guid>{{ url('/posts/' .$post->slug) }}</guid>
             <category>{{ $post->category->name }}</category>
         </item>
