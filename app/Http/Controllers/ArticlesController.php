@@ -14,11 +14,12 @@ class ArticlesController extends Controller
      */
     public function index(Request $request)
     {
+        $per_page = 5;
         $sort = $request->sort;
         $articles = Article::orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
             $category = Category::where('name', $sort)->first('id');
             $query->where('category_id', $category->id);
-        })->paginate();
+        })->paginate($per_page);
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(6)->get();
         return view('index', compact('articles', 'categories', 'recent_articles'));
@@ -52,12 +53,12 @@ class ArticlesController extends Controller
         return view('archive', compact('articles', 'categories', 'recent_articles'));
     }
 
-    public function tags()
-    {
-        $categories = Category::all();
-        $recent_articles = Article::latest()->limit(6)->get();
-        return view('tag', compact('categories', 'recent_articles'));
-    }
+//    public function tags()
+//    {
+//        $categories = Category::all();
+//        $recent_articles = Article::latest()->limit(6)->get();
+//        return view('tag', compact('categories', 'recent_articles'));
+//    }
 
     public function about()
     {
