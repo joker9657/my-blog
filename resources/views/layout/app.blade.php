@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('uploads/favicon.ico') }}" type="image/x-icon">
-    <title>Joker的博客</title>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <title>@yield('title', 'Joker 的博客')</title>
 </head>
 <body>
 <div class="box">

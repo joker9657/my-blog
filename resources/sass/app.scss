@@ -70,8 +70,8 @@ main {
     padding-bottom: 2.5rem;
 }
 .post-title {
-    color: #555;
-    font-size: 1.5rem;
+    font-size: 30px;
+    font-weight: normal;
     text-align: left;
 }
 .post-meta {
@@ -92,11 +92,16 @@ main {
     line-height: 1.5;
 }
 .post-content a {
-    text-decoration:lightslategrey wavy underline;
     color: #3fc3ee;
 }
 .post-content p {
     line-height: 30px;
+}
+.post-content h1 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
 }
 table {
     display: table;
