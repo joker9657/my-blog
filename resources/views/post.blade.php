@@ -60,16 +60,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
-    var id = "{{ $article->id }}";
-    var gitalk = new Gitalk({
-        clientID: '999e097ebc350ce2749b',
-        clientSecret: 'dcebb6cb67a552a9447da0c3946759636222448b',
-        repo: 'my-blog',
-        owner: 'qf-Z',
-        admin: ['qf-Z'],
-        id: id,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
+    window.onload(function () {
+        var id = "{{ $article->id }}";
+        var gitalk = new Gitalk({
+            clientID: '999e097ebc350ce2749b',
+            clientSecret: 'dcebb6cb67a552a9447da0c3946759636222448b',
+            repo: 'my-blog',
+            owner: 'qf-Z',
+            admin: ['qf-Z'],
+            id: 123,      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+        gitalk.render('gitalk-container')
     })
-
-    gitalk.render('gitalk-container')
 </script>
