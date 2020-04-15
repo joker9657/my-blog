@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 @extends('layout.app')
 @section('title', $article->title . '-- Joker 的博客')
 @section('main')
@@ -59,7 +57,8 @@
         </div>
     </main>
 @stop
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
     var id = "{{ $article->id }}";
     var gitalk = new Gitalk({
@@ -67,7 +66,7 @@
         clientSecret: 'dcebb6cb67a552a9447da0c3946759636222448b',
         repo: 'my-blog',
         owner: 'qf-Z',
-        admin: ['qf-Z, qf-Z'],
+        admin: ['qf-Z'],
         id: id,      // Ensure uniqueness and length less than 50
         distractionFreeMode: false  // Facebook-like distraction free mode
     })
