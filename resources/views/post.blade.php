@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 @extends('layout.app')
 @section('title', $article->title . '-- Joker 的博客')
 @section('main')
@@ -11,11 +13,12 @@
                     <div class="post-meta">
                         <img src="{{ asset('uploads/date.png') }}" alt="" class="date-img" />
                         <span>{{ $article->created_at->format('Y-m-d') }}</span>
-                        <span>{{ $article->clicks }}&ensp;views</span>
+{{--                        <span>{{ $article->clicks }}&ensp;views</span>--}}
                     </div>
                     <div class="post-content ">
                         {!! $article->content !!}
                     </div>
+                    <div id="gitalk-container"></div>
                 </div>
             </div>
         </div>
@@ -56,3 +59,18 @@
         </div>
     </main>
 @stop
+
+<script>
+    var id = "{{ $article->id }}";
+    var gitalk = new Gitalk({
+        clientID: '999e097ebc350ce2749b',
+        clientSecret: 'dcebb6cb67a552a9447da0c3946759636222448b',
+        repo: 'my-blog',
+        owner: 'qf-Z',
+        admin: ['qf-Z, qf-Z'],
+        id: id,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
