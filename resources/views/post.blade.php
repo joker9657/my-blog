@@ -68,7 +68,8 @@
             repo: 'my-blog',
             owner: 'qf-Z',
             admin: ['qf-Z'],
-            id: 123,      // Ensure uniqueness and length less than 50
+            id: id,      // Ensure uniqueness and length less than 50
+            title: location.href,
             distractionFreeMode: false  // Facebook-like distraction free mode
         })
         gitalk.render('gitalk-container')
