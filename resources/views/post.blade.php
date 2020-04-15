@@ -60,7 +60,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
-    window.onload(function () {
+    window.onload = function () {
         var id = "{{ $article->id }}";
         var gitalk = new Gitalk({
             clientID: '999e097ebc350ce2749b',
@@ -72,5 +72,5 @@
             distractionFreeMode: false  // Facebook-like distraction free mode
         })
         gitalk.render('gitalk-container')
-    })
+    };
 </script>
