@@ -35,6 +35,10 @@ class ArticlesController extends Controller
         $article = Article::when($slug, function ($query) use ($slug) {
             $query->where('slug', $slug);
         })->first();
+
+        $redis = app()->get('redis');
+        $redis->connect('127.0.0.1', '6379');
+        $redis->zIncrby('view_count', 1, 'article:' . $article->id);
         $article->content = \Parsedown::instance()->text($article->content);
 
         $categories = Category::all();

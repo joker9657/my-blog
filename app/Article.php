@@ -22,11 +22,12 @@ class Article extends Model
 
     protected static function booted()
     {
-        static::created(function ($article) {
-            $redis = app()->get('redis');
-            $redis->connect('127.0.0.1', '6379');
-            $redis->zAdd('view_count', 0, 'article:' . $article->id); // 初始化文章的浏览量
-        });
+        // 忽然发现不需要在创建文章的时候初始化浏览量了，当点击一次详情页的时候，浏览量+1，如果成员不存在则自动生成
+//        static::created(function ($article) {
+//            $redis = app()->get('redis');
+//            $redis->connect('127.0.0.1', '6379');
+//            $redis->zAdd('view_count', 0, 'article:' . $article->id); // 初始化文章的浏览量
+//        });
     }
 
 
