@@ -14,10 +14,21 @@ class Article extends Model
     protected $table = 'articles';
 
     protected $guarded = [];
+
     protected $dates = [
         'created_at',
         'updated_at',
     ];
+
+    protected static function booted()
+    {
+        static::created(function ($article) {
+            $redis = app()->get('redis');
+            $redis->connect('127.0.0.1', '6379');
+            $redis->zAdd('view_count', 0, 'article:' . $article->id); // 初始化文章的浏览量
+        });
+    }
+
 
 
     public function category()
