@@ -37,8 +37,11 @@ class ArticlesController extends Controller
         })->first();
 
         $redis = app()->get('redis');
-        $redis->connect('127.0.0.1', '6379');
-        $redis->zIncrby('view_count', 1, 'article:' . $article->id);
+        $redis->pconnect('127.0.0.1', '6379');
+        $redis->auth(config('database.redis.default.password'));
+        if ($redis->isConnected()) {
+            $redis->zIncrby('view_count', 1, 'article:' . $article->id);
+        }
         $article->content = \Parsedown::instance()->text($article->content);
 
         $categories = Category::all();
