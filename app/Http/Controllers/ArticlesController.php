@@ -14,6 +14,7 @@ class ArticlesController extends Controller
      */
     public function index(Request $request)
     {
+        echo phpinfo();
         $per_page = 5;
         $sort = $request->sort;
         $articles = Article::orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
