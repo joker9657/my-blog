@@ -6,9 +6,7 @@ a {
 body {
     margin: 0;
 }
-ul {
-    list-style: none;
-}
+
 .box {
     max-width: 1160px;
     margin: 0 auto;
@@ -174,11 +172,9 @@ th, td {
     content: "";
     display: table;
 }
-.pagination ul {
-    width: 100%;
-}
 
 .pagination ul {
+    width: 100%;
     list-style: none;
     display: inline;
     padding-left: 0;
