@@ -32,9 +32,9 @@ class ArticlesController extends Controller
     public function post(Request $request)
     {
         $slug = $request->slug;
-        $article = Article::when($slug, function ($query) use ($slug) {
+        $article = Article::with('category')->when($slug, function ($query) use ($slug) {
             $query->where('slug', $slug);
-        })->first();
+        })->firstOrFail();
 
         $redis = app()->get('redis');
         $redis->pconnect('127.0.0.1', '6379');
