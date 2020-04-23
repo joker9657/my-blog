@@ -10,6 +10,8 @@ body {
 .box {
     max-width: 1160px;
     margin: 0 auto;
+    padding: 0 60px;
+    box-sizing: border-box;
 }
 .header {
     padding: 50px 0 0;
@@ -18,11 +20,15 @@ body {
     position: relative;
 }
 .title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 40px;
 }
 .title a {
     font-size: 2.25rem;
     color: #2d3748;
+}
+.title p {
+    margin: 0;
+    color: #999;
 }
 .nav-menu {
     margin: 10px 0 -1px;
@@ -52,25 +58,26 @@ main {
     display: flex;
 }
 .left-main {
-    width: 75%;
+    width: 80%;
 }
 .right-main {
-    width: 25%;
+    width: 20%;
     border-left: 1px solid #ddd;
     margin: 3rem auto;
 }
 .left-main-box {
     padding-right: 2rem;
-    padding-top: .5rem;
 }
 .post {
-    padding-top: 2.5rem;
+    padding-top: 2rem;
     padding-bottom: 2.5rem;
 }
 .post-title {
     font-size: 30px;
     font-weight: normal;
     text-align: left;
+    overflow: hidden;
+    margin: 0;
 }
 .post-meta {
     margin-top: 1rem;

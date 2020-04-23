@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', $article->title . '-- Joker 的博客')
+@section('title', $article->title . ' | Joker 的博客')
 @section('main')
     <main>
         <div class="left-main">
@@ -9,9 +9,10 @@
                         <a href="/posts/{{ $article->slug }}">{{ $article->title }}</a>
                     </h1>
                     <div class="post-meta">
+                        <img src="{{ asset('uploads/category.png') }}" alt="" class="date-img"/>
+                        <span>{{ $article->category->name }}</span>
                         <img src="{{ asset('uploads/date.png') }}" alt="" class="date-img" />
                         <span>{{ $article->created_at->format('Y-m-d') }}</span>
-{{--                        <span>{{ $article->clicks }}&ensp;views</span>--}}
                     </div>
                     <div class="post-content ">
                         {!! $article->content !!}
