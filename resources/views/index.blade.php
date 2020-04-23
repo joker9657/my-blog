@@ -4,10 +4,9 @@
         <div class="left-main">
             @foreach($articles as $article)
             <div class="left-main-box">
-                <a href="/posts/{{ $article->slug }}">
                 <div class="post">
                     <h1 class="post-title">
-                        {{ $article->title }}
+                        <a href="/posts/{{ $article->slug }}">{{ $article->title }}</a>
                     </h1>
                     <div class="post-meta">
                         <img src="{{ asset('uploads/date.png') }}" alt="" class="date-img" />
@@ -20,7 +19,6 @@
 {{--                        <a href="/posts/{{ $article->slug }}" >阅读全文</a>--}}
 {{--                    </p>--}}
                 </div>
-                </a>
             </div>
             @endforeach
             <nav class="pagination">
