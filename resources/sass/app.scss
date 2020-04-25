@@ -5,6 +5,8 @@ a {
 }
 body {
     margin: 0;
+    font-family: Monaco;
+    scroll-behavior: smooth;
 }
 
 .box {
@@ -74,7 +76,7 @@ main {
 }
 .post-title {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 400;
     text-align: left;
     overflow: hidden;
     margin: 0;
