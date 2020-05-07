@@ -67,6 +67,10 @@ class ArticlesController extends Controller
 //        return view('tag', compact('categories', 'recent_articles'));
 //    }
 
+    /**
+     * 关于我
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function about()
     {
         $categories = Category::all();
@@ -74,4 +78,15 @@ class ArticlesController extends Controller
         return view('about', compact('categories', 'recent_articles'));
     }
 
+    /**
+     * 书单
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function booklist()
+    {
+
+        $categories = Category::all();
+        $recent_articles = Article::latest()->limit(6)->get();
+        return view('booklist', compact( 'categories', 'recent_articles'));
+    }
 }

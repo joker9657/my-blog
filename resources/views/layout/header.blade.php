@@ -4,11 +4,39 @@
         <p>Do more and think less</p>
     </div>
     @switch(request()->segment(1))
+        @case('booklist')
+            <div class="nav-menu">
+                <a href="/">
+                    <img src="{{ asset('uploads/home.png') }}" alt=""  />
+                    <span>首页</span>
+                </a>
+                <a class="current" href="/booklist">
+                    <img src="{{ asset('uploads/booklist.png') }}" alt=""  />
+                    <span>书单</span>
+                </a>
+                <a href="/archive">
+                    <img src="{{ asset('uploads/archive.png') }}" alt=""  />
+                    <span>归档</span>
+                </a>
+                <a href="/about">
+                    <img src="{{ asset('uploads/about.png') }}" alt=""  />
+                    <span>关于</span>
+                </a>
+                <a href="/generated/feed" target="_blank" rel="feed" type="application/rss+xml" title="Feed">
+                    <img src="{{ asset('uploads/subscription.png') }}" alt=""  />
+                    <span>订阅</span>
+                </a>
+            </div>
+            @break
         @case('archive')
             <div class="nav-menu">
                 <a href="/">
                     <img src="{{ asset('uploads/home.png') }}" alt=""  />
                     <span>首页</span>
+                </a>
+                <a href="/booklist">
+                    <img src="{{ asset('uploads/booklist.png') }}" alt=""  />
+                    <span>书单</span>
                 </a>
                 <a class="current" href="/archive">
                     <img src="{{ asset('uploads/archive.png') }}" alt=""  />
@@ -30,6 +58,10 @@
                     <img src="{{ asset('uploads/home.png') }}" alt=""  />
                     <span>首页</span>
                 </a>
+                <a href="/booklist">
+                    <img src="{{ asset('uploads/booklist.png') }}" alt=""  />
+                    <span>书单</span>
+                </a>
                 <a href="/archive">
                     <img src="{{ asset('uploads/archive.png') }}" alt=""  />
                     <span>归档</span>
@@ -50,6 +82,10 @@
                     <img src="{{ asset('uploads/home.png') }}" alt=""  />
                     <span>首页</span>
                 </a>
+                <a href="/booklist">
+                    <img src="{{ asset('uploads/booklist.png') }}" alt=""  />
+                    <span>书单</span>
+                </a>
                 <a href="/archive">
                     <img src="{{ asset('uploads/archive.png') }}" alt=""  />
                     <span>归档</span>
@@ -69,6 +105,10 @@
                 <a class="current" href="/">
                     <img src="{{ asset('uploads/home.png') }}" alt=""  />
                     <span>首页</span>
+                </a>
+                <a href="/booklist">
+                    <img src="{{ asset('uploads/booklist.png') }}" alt=""  />
+                    <span>书单</span>
                 </a>
                 <a href="/archive">
                     <img src="{{ asset('uploads/archive.png') }}" alt=""  />

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/posts/{slug?}', 'ArticlesController@post');
 Route::get('/archive', 'ArticlesController@archive');
-//Route::get('/tags', 'ArticlesController@tags');
+Route::get('/booklist', 'ArticlesController@booklist');
 Route::get('/about', 'ArticlesController@about');
 Route::get('/{sort?}', 'ArticlesController@index');
 
