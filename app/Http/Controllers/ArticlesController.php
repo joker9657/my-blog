@@ -16,7 +16,7 @@ class ArticlesController extends Controller
     {
         $per_page = 5;
         $sort = $request->sort;
-        $articles = Article::orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
+        $articles = Article::query()->orderBy('created_at', 'desc')->orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
             $category = Category::where('name', $sort)->firstOrFail('id');
             $query->where('category_id', $category->id);
         })->paginate($per_page);
