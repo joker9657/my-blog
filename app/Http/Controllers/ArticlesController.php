@@ -84,9 +84,8 @@ class ArticlesController extends Controller
      */
     public function booklist()
     {
-
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(6)->get();
-        return view('booklist', compact( 'categories', 'recent_articles'));
+        return view('booklist', compact('categories', 'recent_articles'));
     }
 }

@@ -78,10 +78,10 @@ class ArticlesController extends AdminController
 
         $form->text('title', '标题');
         $form->simplemde('content', '内容');
-        $form->select('category_id', '分类')->options(function() {
+        $form->select('category_id', '分类')->options(function () {
             $categories = Category::pluck('name', 'id');
             return $categories;
-        })->config('placeholder','请选择');
+        })->config('placeholder', '请选择');
         $form->text('introduction', '简介');
         $form->text('slug', __('Slug'));
         $form->number('sorting', __('Sorting'))->default(0);
