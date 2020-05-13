@@ -4,5 +4,4 @@
     cd /home/zqf/Code/my-blog
     git pull
     php artisan opcache:clear
-    npm run production
 @endtask
