@@ -22,6 +22,12 @@
                         <li><span class="booklist-title">「<a href="https://book.douban.com/subject/30314653//" target="_blank">韭菜的自我修养</a>」</span>&nbsp;<span class="booklist-author">李笑来</span></li>
                         <li><span class="booklist-title">「<a href="https://book.douban.com/subject/30784282//" target="_blank">解读基金——我的投资观与实践</a>」</span>&nbsp;<span class="booklist-author">季凯帆 / 康峰</span></li>
                     </ul>
+                    <span>电子书及文档</span>
+                    <ul>
+                        <li><span class="booklist-title">「<a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way" target="_blank">提問的智慧</a>」</span></li>
+                        <li><span class="booklist-title">「<a href="https://learnku.com/docs/psr" target="_blank">PHP PSR 标准规范</a>」</span></li>
+                        <li><span class="booklist-title">「<a href="https://github.com/jupeter/clean-code-php" target="_blank">PHP 代码简洁之道</a>」</span></li>
+                    </ul>
                     <span>其他</span>
                     <ul>
                         <li><span class="booklist-title">「<a href="https://book.douban.com/subject/1013208//" target="_blank">如何阅读一本书</a>」</span>&nbsp;<span class="booklist-author">[美] 莫提默·J.艾德勒/查尔斯·范多伦 [译]郝明义/朱衣</span></li>
