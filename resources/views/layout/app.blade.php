@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('uploads/favicon.ico') }}" type="image/x-icon">
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166619282-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-166619282-1');
+    </script>
     <title>@yield('title', 'Joker 的博客')</title>
 </head>
 <body>
