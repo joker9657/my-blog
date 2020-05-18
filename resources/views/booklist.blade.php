@@ -30,7 +30,8 @@
                     </ul>
                     <span>其他</span>
                     <ul>
-                        <li><span class="booklist-title">「<a href="https://book.douban.com/subject/1013208//" target="_blank">如何阅读一本书</a>」</span>&nbsp;<span class="booklist-author">[美] 莫提默·J.艾德勒/查尔斯·范多伦 [译]郝明义/朱衣</span></li>
+                        <li><span class="booklist-title">「<a href="https://book.douban.com/subject/1013208//" target="_blank">如何阅读一本书</a>」</span>&nbsp;<span class="booklist-author">[美]莫提默·J.艾德勒/查尔斯·范多伦 [译]郝明义/朱衣</span></li>
+                            <li><span class="booklist-title">「<a href="https://book.douban.com/subject/3533221//" target="_blank">非暴力沟通</a>」</span>&nbsp;<span class="booklist-author">[美]马歇尔·卢森堡</span></li>
                         <li><span class="booklist-title">「<a href="https://book.douban.com/subject/27071913//" target="_blank">刻意学习</a>」</span>&nbsp;<span class="booklist-author">Scalers</span></li>
                     </ul>
                 </div>
