@@ -67,7 +67,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
     window.onload = function () {
-        document.scrollingElement.scrollTop = 163;
+        // document.scrollingElement.scrollTop = 163;
         var id = "{{ $article->id }}";
         var gitalk = new Gitalk({
             clientID: '999e097ebc350ce2749b',

@@ -356,4 +356,16 @@ blockquote {
     margin: 20px 0;
     text-align: -webkit-auto;
 }
+::selection {
+    background:#FF9;  //更改颜色
+    color:#1d1f20;
+}
+::-moz-selection {
+    background:#FF9;  //更改颜色
+    color:#F00;
+}
+::-webkit-selection {
+    background:#FF9;  //更改颜色
+    color:#1d1f20;
+}
 
