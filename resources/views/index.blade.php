@@ -48,7 +48,12 @@
         <div class="right-main">
             <div class="sidebar">
                 <div class="search-button">
-                    <label for=""><input type="text" placeholder="Search" class="search"></label>
+                    <form action="https://www.google.com/search" onsubmit="return search()" id="search-form" method="get" target="_blank">
+                        <label for="">
+                            <input type="text" placeholder="Search" class="search" id="search-input">
+                            <input type="hidden" name="q" id="hidden-input">
+                        </label>
+                    </form>
                 </div>
                 <div class="widget">
                     <div class="category">
