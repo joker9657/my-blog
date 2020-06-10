@@ -37,6 +37,7 @@ class ArticlesController extends AdminController
         $grid->column('sorting', '排序');
         $grid->column('created_at', __('Created at'))->date('Y-m-d');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d');
+        $grid->model()->orderBy('id', 'desc');
 
         $grid->actions(function ($actions) {
             // 去掉查看

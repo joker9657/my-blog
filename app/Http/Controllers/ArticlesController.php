@@ -16,10 +16,14 @@ class ArticlesController extends Controller
     {
         $per_page = 5;
         $sort = $request->sort;
-        $articles = Article::query()->orderBy('created_at', 'desc')->orderBy('sorting', 'desc')->when($sort, function ($query) use ($sort) {
-            $category = Category::where('name', $sort)->firstOrFail('id');
-            $query->where('category_id', $category->id);
-        })->paginate($per_page);
+        $articles = Article::query()
+                    ->orderBy('created_at', 'desc')
+                    ->orderBy('sorting', 'desc')
+                    ->when($sort, function ($query) use ($sort) {
+                        $category = Category::where('name', $sort)->firstOrFail('id');
+                        $query->where('category_id', $category->id);
+                    })
+                    ->paginate($per_page);
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(6)->get();
         return view('index', compact('articles', 'categories', 'recent_articles'));
