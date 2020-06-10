@@ -1,7 +1,7 @@
 <header class="header">
     <div class="title">
         <a href="/">Joker 的博客</a>
-        <p>Do more and think less</p>
+        <p>less is more</p>
     </div>
     @switch(request()->segment(1))
         @case('booklist')
