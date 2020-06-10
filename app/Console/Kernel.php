@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('update-post-views')->monthly()->sendOutputTo(storage_path('logs/laravel.log')); // 每月第一天0点执行命令：更新阅读量
     }
 
     /**
