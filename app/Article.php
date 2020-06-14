@@ -19,6 +19,7 @@ class Article extends Model
         'created_at',
         'updated_at',
     ];
+    const PERPAGE = 5; // 每页数量
 
     protected static function booted()
     {
