@@ -37,9 +37,10 @@ class ArticlesController extends Controller
      */
     public function post(Request $request)
     {
+        $tags = '';
         $slug = $request->slug;
         $article = Article::query()
-                ->with('category')
+                ->with('category', 'tags')
                 ->when($slug, function ($query) use ($slug) {
                     $query->where('slug', $slug);
                 })->firstOrFail();
@@ -52,9 +53,13 @@ class ArticlesController extends Controller
         }
         $article->content = \Parsedown::instance()->text($article->content);
 
+        if (count($article->tags)) {
+            $tags = $article->tags->implode('name', ',');
+        }
+
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
-        return view('post', compact('article', 'categories', 'recent_articles'));
+        return view('post', compact('article', 'categories', 'recent_articles', 'tags'));
     }
 
     /**

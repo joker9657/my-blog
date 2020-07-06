@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="@yield('description', 'Joker 的博客')">
+    <meta name="keywords" content="@yield('keywords', 'PHP、Laravel、Docker、Nginx')">
     <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('uploads/favicon.ico') }}" type="image/x-icon">

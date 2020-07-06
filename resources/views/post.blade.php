@@ -1,5 +1,7 @@
 @extends('layout.app')
 @section('title', $article->title . ' | Joker 的博客')
+@section('description', $article->introduction ?: 'Joker 的博客')
+@section('keywords', $tags ?: 'Joker 的博客')
 @section('main')
     <main>
         <div class="left-main">
