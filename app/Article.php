@@ -20,6 +20,7 @@ class Article extends Model
         'updated_at',
     ];
     const PERPAGE = 5; // 每页数量
+    const ARCHIVE_PAGE = 30; // 归档显示数量
 
     protected static function booted()
     {

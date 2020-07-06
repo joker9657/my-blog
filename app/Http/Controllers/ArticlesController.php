@@ -67,18 +67,11 @@ class ArticlesController extends Controller
      */
     public function archive()
     {
-        $articles = Article::latest()->select(['title', 'slug', 'created_at'])->get();
+        $articles = Article::latest()->select(['title', 'slug', 'created_at'])->limit(Article::ARCHIVE_PAGE)->get();
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
         return view('archive', compact('articles', 'categories', 'recent_articles'));
     }
-
-//    public function tags()
-//    {
-//        $categories = Category::all();
-//        $recent_articles = Article::latest()->limit(6)->get();
-//        return view('tag', compact('categories', 'recent_articles'));
-//    }
 
     /**
      * 关于我
