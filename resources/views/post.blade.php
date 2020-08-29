@@ -75,8 +75,8 @@
             clientID: '999e097ebc350ce2749b',
             clientSecret: 'dcebb6cb67a552a9447da0c3946759636222448b',
             repo: 'my-blog',
-            owner: 'qf-Z',
-            admin: ['qf-Z'],
+            owner: 'joker9657',
+            admin: ['joker9657'],
             id: id,      // Ensure uniqueness and length less than 50
             title: location.href,
             distractionFreeMode: false  // Facebook-like distraction free mode
