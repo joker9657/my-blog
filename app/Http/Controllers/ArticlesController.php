@@ -5,9 +5,24 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ArticlesController extends Controller
 {
+    private object $redis;
+
+    public function __construct()
+    {
+        $this->redis = app()->get('redis');
+        $this->redis->pconnect('127.0.0.1', '6379');
+        $this->redis->auth(config('database.redis.default.password'));
+        if (!$this->redis->isConnected()) {
+            Log::error('redis is not connected');
+            return abort(404);
+        }
+    }
+
+
     /**
      * 首页
      * @param Request $request
@@ -24,10 +39,9 @@ class ArticlesController extends Controller
             $query->whereNotIn('category_id', [Category::HIDDEN_CATEGORY]); // 不希望显示算法相关分类的记录
         }
         $articles = $query
-                    ->latest()
                     ->orderBy('sorting', 'desc')
                     ->paginate(Article::PERPAGE);
-        $categories = Category::all();
+        $categories = $this->category();
         $recent_articles = Article::query()->latest()->limit(Article::PERPAGE)->get();
         return view('index', compact('articles', 'categories', 'recent_articles'));
     }
@@ -47,19 +61,15 @@ class ArticlesController extends Controller
                     $query->where('slug', $slug);
                 })->firstOrFail();
 
-        $redis = app()->get('redis');
-        $redis->pconnect('127.0.0.1', '6379');
-        $redis->auth(config('database.redis.default.password'));
-        if ($redis->isConnected()) {
-            $redis->zIncrby('view_count', 1, 'article:' . $article->id); // 将文章的浏览量记录在 redis 的 zset 中
-        }
+        $this->redis->zIncrby('view_count', 1, 'article:' . $article->id); // 将文章的浏览量记录在 redis 的 zset 中
+
         $article->content = \Parsedown::instance()->text($article->content);
 
         if (count($article->tags)) {
             $tags = $article->tags->implode('name', ',');
         }
 
-        $categories = Category::all();
+        $categories = $this->category();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
         return view('post', compact('article', 'categories', 'recent_articles', 'tags'));
     }
@@ -70,8 +80,12 @@ class ArticlesController extends Controller
      */
     public function archive() : object
     {
-        $articles = Article::latest()->select(['title', 'slug', 'created_at'])->limit(Article::ARCHIVE_PAGE)->get();
-        $categories = Category::all();
+        $articles = Article::query()
+            ->latest()
+            ->select(['title', 'slug', 'created_at'])
+            ->limit(Article::ARCHIVE_PAGE)
+            ->get();
+        $categories = $this->category();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
         return view('archive', compact('articles', 'categories', 'recent_articles'));
     }
@@ -82,8 +96,8 @@ class ArticlesController extends Controller
      */
     public function about() : object
     {
-        $categories = Category::all();
-        $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
+        $categories = $this->category();
+        $recent_articles = Article::query()->latest()->limit(Article::PERPAGE)->get();
         return view('about', compact('categories', 'recent_articles'));
     }
 
@@ -93,8 +107,22 @@ class ArticlesController extends Controller
      */
     public function booklist() : object
     {
-        $categories = Category::all();
-        $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
+        $categories = $this->category();
+        $recent_articles = Article::query()->latest()->limit(Article::PERPAGE)->get();
         return view('booklist', compact('categories', 'recent_articles'));
+    }
+
+    /**
+     * 获取分类
+     * @return mixed
+     */
+    protected function category() : ?array
+    {
+        $categories = $this->redis->get('categories');
+        if (!$categories) {
+            $categories = Category::all();
+            $this->redis->set('categories', json_encode($categories));
+        }
+        return json_decode($categories, true);
     }
 }

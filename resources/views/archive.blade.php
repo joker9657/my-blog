@@ -28,7 +28,7 @@
                     </div>
                     <ul class="category-list">
                         @foreach($categories as $val)
-                            <li><a href="/{{ $val->name }}">{{ $val->name }}</a></li>
+                            <li><a href="/{{ $val['name'] }}">{{ $val['name'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
