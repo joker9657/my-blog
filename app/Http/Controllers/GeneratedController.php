@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 namespace App\Http\Controllers;
 
@@ -8,26 +9,21 @@ use Illuminate\Support\Facades\Cache;
 class GeneratedController extends Controller
 {
     /**
+     *
      * @return \Illuminate\Http\Response
      */
-    public function siteMap()
+    public function siteMap() : object
     {
-//        $view = Cache::remember('generated.sitemap', function () {
-//            $posts = Post:all();
-//        // return generated xml (string) , cache whole file
-//        return view('generated.sitemap', compact('posts'))->render();
-//    });
         $articles = Article::get();
         return response()->view('generated.sitemap', compact('articles'))->header('Content-Type', 'text/xml');
     }
 
-    public function feed()
+    /**
+     * RSS feed
+     * @return \Illuminate\Http\Response
+     */
+    public function feed() : object
     {
-//        $view = chche()->remember('generated.sitemap', function () {
-//                $posts = Post:all();
-//            // return generated xml (string) , cache whole file
-//            return view('generated.feed', compact('posts'))->render();
-//        });
         $posts = Article::get();
         return response()->view('generated.feed', compact('posts'))->header('Content-Type', 'text/xml');
     }

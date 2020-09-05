@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 class ArticlesController extends Controller
 {
     /**
+     * 首页
      * @param Request $request
      * @return  \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request) : object
     {
         $sort = $request->sort; // 分类名
         $query = Article::query();
@@ -32,10 +33,11 @@ class ArticlesController extends Controller
     }
 
     /**
+     * 文章详情
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function post(Request $request)
+    public function post(Request $request) : object
     {
         $tags = '';
         $slug = $request->slug;
@@ -63,9 +65,10 @@ class ArticlesController extends Controller
     }
 
     /**
+     * 归档
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function archive()
+    public function archive() : object
     {
         $articles = Article::latest()->select(['title', 'slug', 'created_at'])->limit(Article::ARCHIVE_PAGE)->get();
         $categories = Category::all();
@@ -77,7 +80,7 @@ class ArticlesController extends Controller
      * 关于我
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function about()
+    public function about() : object
     {
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
@@ -88,7 +91,7 @@ class ArticlesController extends Controller
      * 书单
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function booklist()
+    public function booklist() : object
     {
         $categories = Category::all();
         $recent_articles = Article::latest()->limit(Article::PERPAGE)->get();
