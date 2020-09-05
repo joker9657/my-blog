@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Log;
 
 class ArticlesController extends Controller
 {
-    private object $redis;
+//    private object $redis; // php7.4新特性：属性添加限定类型
+    private $redis;
 
     public function __construct()
     {
