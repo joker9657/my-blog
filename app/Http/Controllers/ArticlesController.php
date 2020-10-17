@@ -133,6 +133,7 @@ class ArticlesController extends Controller
     {
         $config = config('wechat.official_account.default');
         $app = Factory::officialAccount($config);
-        dd($app->jssdk->buildConfig(array('updateAppMessageShareData', 'updateTimelineShareData'), true));
+        $wechat_config = $app->jssdk->buildConfig(['openLocation'], false);
+        return view('navigation', compact('wechat_config'));
     }
 }
