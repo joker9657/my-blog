@@ -26,3 +26,5 @@ Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 // RSS Feed
 Route::get('generated/feed', 'GeneratedController@feed');
 Route::get('generated/feed.xml', 'GeneratedController@feed');
+
+Route::get('/wechat/navigation', 'ArticlesController@navigation');

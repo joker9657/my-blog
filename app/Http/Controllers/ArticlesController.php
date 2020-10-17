@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use EasyWeChat\Factory;
+use EasyWeChat\Work\Jssdk\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -125,5 +127,12 @@ class ArticlesController extends Controller
             $this->redis->set('categories', json_encode($categories));
         }
         return json_decode($categories, true);
+    }
+
+    public function navigation()
+    {
+        $config = config('wechat.official_account.default');
+        $app = Factory::officialAccount($config);
+        dd($app->jssdk->buildConfig(array('updateAppMessageShareData', 'updateTimelineShareData'), true));
     }
 }
