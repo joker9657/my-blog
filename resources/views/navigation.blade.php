@@ -10,15 +10,27 @@
 <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     var config = <?php echo $config; ?>;
+
+    var latitude;
+    var longitude;
     wx.config(config);
 
     wx.ready(function () {
+        wx.getLocation({
+            type: 'gcj02',
+            success: function (res) {
+                latitude = res.latitude;
+                longitude = res.longitude;
+            }
+        })
         wx.openLocation({
-            latitude: 23.159365, // 纬度，浮点数，范围为90 ~ -90
-            longitude: 114.423986, // 经度，浮点数，范围为180 ~ -180。
+            // latitude: 23.159365, // 纬度，浮点数，范围为90 ~ -90
+            // longitude: 114.423986, // 经度，浮点数，范围为180 ~ -180。
+            latitude: latitude,
+            longitude: longitude,
             name: '康泰家居广场', // 位置名
             address: '广东省惠州市惠城区站前一路7-1号', // 地址详情说明
-            scale: 24, // 地图缩放级别,整形值,范围从1~28。默认为最大
+            scale: 20, // 地图缩放级别,整形值,范围从1~28。默认为最大
             infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
         });
     });
