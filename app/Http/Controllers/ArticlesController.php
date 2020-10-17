@@ -133,8 +133,7 @@ class ArticlesController extends Controller
     {
         $config = config('wechat.official_account.default');
         $app = Factory::officialAccount($config);
-        $wechat_config = $app->jssdk->buildConfig(['openLocation'], true);
-//        var_dump($wechat_config);die;
+        $wechat_config = $app->jssdk->buildConfig(['openLocation'], false);
         return view('navigation', ['config' => $wechat_config]);
     }
 }
