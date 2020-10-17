@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>App Name</title>
+    <title>康泰家居</title>
 </head>
 <body>
 {{--<span class="desc">使用微信内置地图查看位置接口</span>--}}
@@ -13,7 +13,6 @@
     wx.config(config);
 
     wx.ready(function () {
-        console.log("{{ $config }}");
         wx.openLocation({
             latitude: 23.159337, // 纬度，浮点数，范围为90 ~ -90
             longitude: 114.423838, // 经度，浮点数，范围为180 ~ -180。
